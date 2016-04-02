@@ -24,10 +24,20 @@ module.exports.findByToken = function(token, callback) {
 };
 module.exports.save = function(userToBeCreated, callback) {
 	models.User.create(userToBeCreated).then(function(user) {
-		return callback(null,{token:user.token});
+		return callback(null,user);
 	});
 };
 
+module.exports.findByPassword = function(usernameParam, passwordParam, callback) {
+	models.User.findOne({
+		where:{
+			username:usernameParam,
+			password:passwordParam
+		}
+	}).then(function(user){
+		return callback(null, user);
+	});
+};
 module.exports.list = function(groupId, callback) {
 	models.Group.findOne({
 		where : {
