@@ -28,8 +28,6 @@ module.exports.analysis = function(req, res, next) {
 	res.generalResponse(null, analysis);
 };
 module.exports.lastYearAnalysis = function(req, res, next) {
-	var lastYearAnalysis = {
-		lastYearEstimatedProduct : 20
-	}
-	res.generalResponse(null, lastYearAnalysis);
+	var monthlyData = stringUtil.getDummyMontlyData();
+	res.generalResponse(null, monthlyData);
 };
