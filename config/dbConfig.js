@@ -14,10 +14,10 @@ module.exports = {
 		dialect : "mysql"
 	},
 	production : {
-		username : "root",
-		password : "",
-		database : "ORGANICFARM",
-		host : "127.0.0.1",
+		username : "b26e1408f43f58",
+		password : "1b467e06",
+		database : "ad_2ca32c4c5a5a1db",
+		host : "us-cdbr-iron-east-03.cleardb.net",
 		dialect : "mysql"
 	}
 };

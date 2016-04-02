@@ -72,6 +72,7 @@ module.exports.userFromParams = function(params) {
 	user.name = params[FieldName.NAME];
 	user.surname = params[FieldName.SURNAME];
 	user.phone = params[FieldName.PHONE];
+	user.password = params[FieldName.PASSWORD];
 	return user;
 };
 initNewUser = function() {
