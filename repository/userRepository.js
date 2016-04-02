@@ -18,14 +18,13 @@ module.exports.findByToken = function(token, callback) {
 				throw new UserNotFoundException("User not found", null);
 			}
 		} catch (e) {
-			logger.error(e);
 			return callback(e, null);
 		}
 	});
 };
 module.exports.save = function(userToBeCreated, callback) {
 	models.User.create(userToBeCreated).then(function(user) {
-		return callback(null, user);
+		return callback(null,{token:user.token});
 	});
 };
 

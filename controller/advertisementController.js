@@ -8,26 +8,28 @@ module.exports.save = function(req, res, callback) {
 };
 
 module.exports.list = function(req, res, next) {
-	advertisementRepo.list(function(err, advertisements){
+	advertisementRepo.list(function(err, advertisements) {
 		res.generalResponse(err, advertisements);
 	});
 };
 
-module.exports.details = function(req, res, next){
+module.exports.details = function(req, res, next) {
 	var advertisementId = req.params.id;
-	advertisementRepo.details(advertisementId, function(err, advertisement){
+	advertisementRepo.details(advertisementId, function(err, advertisement) {
 		res.generalResponse(err, advertisement);
 	});
 };
 
-module.exports.analysis = function(advertisement, size, callback) {
-	var Analysis = {
+module.exports.analysis = function(req, res, next) {
+	var size = req.query.size;
+	var analysis = {
 		estimatedProduction : size * 5
 	}
-	return callback(null, Analysis);
+	res.generalResponse(null, analysis);
 };
-module.exports.lastYearAnalysis = function(advertisement, callback) {
+module.exports.lastYearAnalysis = function(req, res, next) {
 	var lastYearAnalysis = {
 		lastYearEstimatedProduct : 20
 	}
+	res.generalResponse(null, lastYearAnalysis);
 };
