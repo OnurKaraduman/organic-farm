@@ -10,6 +10,7 @@ var advertismentRouter = require('./advertisementRouter');
 router.use('/*', ApiUtil.addServisistResponseMethods);
 
 router.post('/users', userContr.signup);
+router.get('/users/login', userContr.login);
 
 router.use('/*', UserAuth.authenticate);
 router.use('/users', UserRouter);

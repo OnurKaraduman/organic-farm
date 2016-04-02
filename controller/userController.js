@@ -14,6 +14,19 @@ exports.signup = function(req, res, next) {
 	}
 };
 
+exports.login = function(req, res, next) {
+	try {
+		var userName = req.query.username;
+		var password = req.query.password;
+		
+		userRepo.findByPassword(userName, password, function(err, user) {
+			res.generalResponse(err, user);
+		});
+	} catch (e) {
+		res.generalResponse(e, null);
+	}
+};
+
 exports.list = function(req, res, next) {
 	userRepo.list(req.params.groupId, function(err, users) {
 		res.generalResponse(err, users);
