@@ -20,6 +20,9 @@ module.exports.list = function(callback) {
 
 module.exports.details = function(advertisementId, callback) {
 	models.Advertisement.findOne({
+		include : [ {
+			model : models.User,
+		} ],
 		where : {
 			id : advertisementId
 		}
