@@ -20,7 +20,7 @@ exports.login = function(req, res, next) {
 		var password = req.query.password;
 		
 		userRepo.findByPassword(userName, password, function(err, user) {
-			res.generalResponse(err, user);
+			res.generalResponse(err, [user]);
 		});
 	} catch (e) {
 		res.generalResponse(e, null);
