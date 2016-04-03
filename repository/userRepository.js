@@ -52,6 +52,7 @@ module.exports.list = function(groupId, callback) {
 	});
 };
 
+
 module.exports.deactivate = function(userToBeDeactived, callback) {
 	userToBeDeactived.updateAttributes({
 		active : false
