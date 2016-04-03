@@ -3,20 +3,26 @@ module.exports.isNull = function(param) {
 	return validator.isNull(param);
 }
 module.exports.getDummyMontlyData = function() {
-	var monthly = {};
-	monthly.January = getRandomNumberForMonth();
-	monthly.February = getRandomNumberForMonth();
-	monthly.March = getRandomNumberForMonth();
-	monthly.April = getRandomNumberForMonth();
-	monthly.May = getRandomNumberForMonth();
-	monthly.June = getRandomNumberForMonth();
-	monthly.July = getRandomNumberForMonth();
-	monthly.August = getRandomNumberForMonth();
-	monthly.September = getRandomNumberForMonth();
-	monthly.October = getRandomNumberForMonth();
-	monthly.November = getRandomNumberForMonth();
-	monthly.December = getRandomNumberForMonth();
-	return monthly;
+
+	var monthly1 = {};
+	monthly1.year = 2015;
+	monthly1.estimatedProduct = getRandomNumberForMonth();
+
+	var monthly2 = {};
+	monthly2.year = 2014;
+	monthly2.estimatedProduct = getRandomNumberForMonth();
+
+	var monthly3 = {};
+	monthly3.year = 2013;
+	monthly3.estimatedProduct = getRandomNumberForMonth();
+
+	var monthly4 = {};
+	monthly4.year = 2012;
+	monthly4.estimatedProduct = getRandomNumberForMonth();
+
+	var montlyList = [ monthly1, monthly2, monthly3, monthly4 ]
+
+	return montlyList;
 };
 getRandomNumberForMonth = function() {
 	return getRandomNumberBetweenNumbers(10, 100);

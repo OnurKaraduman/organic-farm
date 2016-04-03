@@ -22,7 +22,11 @@ module.exports.details = function(advertisementId, callback) {
 	models.Advertisement.findOne({
 		where : {
 			id : advertisementId
+		},
+		include : [ {
+			model : models.User
 		}
+		]
 	}).then(function(advertisement) {
 		return callback(null, advertisement);
 	});

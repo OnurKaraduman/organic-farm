@@ -16,7 +16,7 @@ module.exports.list = function(req, res, next) {
 module.exports.details = function(req, res, next) {
 	var advertisementId = req.params.id;
 	advertisementRepo.details(advertisementId, function(err, advertisement) {
-		res.generalResponse(err, advertisement);
+		res.generalResponse(err, [advertisement]);
 	});
 };
 

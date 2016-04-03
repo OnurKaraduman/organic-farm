@@ -24,18 +24,25 @@ module.exports.findByToken = function(token, callback) {
 };
 module.exports.save = function(userToBeCreated, callback) {
 	models.User.create(userToBeCreated).then(function(user) {
-		return callback(null,user);
+		return callback(null, user);
 	});
 };
 
 module.exports.findByPassword = function(usernameParam, passwordParam, callback) {
 	models.User.findOne({
-		where:{
-			username:usernameParam,
-			password:passwordParam
+		where : {
+			username : usernameParam,
+			password : passwordParam
 		}
-	}).then(function(user){
-		return callback(null, user);
+	}).then(function(user) {
+		try {
+			if (user)
+				return callback(null, user);
+			else
+				throw new UserNotFoundException("User not found", null);
+		} catch (e) {
+			return callback(e, null);
+		}
 	});
 };
 module.exports.list = function(groupId, callback) {
